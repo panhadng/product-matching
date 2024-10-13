@@ -20,7 +20,7 @@ Product Matching is a project designed to compare and analyze products based on 
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/product-matching.git
+   git clone https://github.com/panhadng/product-matching.git
    ```
 2. Navigate into the project directory:
    ```bash
