@@ -20,9 +20,10 @@ from io import BytesIO
 # Suppress warnings
 warnings.filterwarnings("ignore")
 
-def describe_image_enhanced_1(image_path):
+# Function to get a text description from an image using the Hugging Face Inference API
+def describe_image_BLIP_1(image_path):
     """
-    Generate an enhanced caption for an image using the BLIP model.
+    Generate an enhanced caption for an image using the BLIP-2 LARGE model.
 
     Args:
         image_path (str): The path to the image file.
@@ -30,7 +31,7 @@ def describe_image_enhanced_1(image_path):
     Returns:
         str: A generated caption describing the image.
 
-    This function uses the BLIP-2 (Salesforce/blip-image-captioning-large) model
+    This function uses the BLIP-2 LARGE (Salesforce/blip-image-captioning-large) model
     to generate a more detailed caption for the given image.
     """
 
@@ -63,10 +64,10 @@ def describe_image_enhanced_1(image_path):
 
 
 # ------------------------------------------
-# Function to get a text description from an image using the Hugging Face Inference API
-def describe_image_enhanced_2(image_path):
+
+def describe_image_NPL_1(image_path):
     """
-    Generate an enhanced caption for an image using the BLIP-2 model.
+    Generate an enhanced caption for an image using the NPLConnect model.
 
     Args:
         image_path (str): The path to the image file.
@@ -74,7 +75,7 @@ def describe_image_enhanced_2(image_path):
     Returns:
         str: A generated caption describing the image.
 
-    This function uses the BLIP-2 (Salesforce/blip-image-captioning-large) model
+    This function uses the NPLConnect (nlpconnect/vit-gpt2-image-captioning) model
     to generate a more detailed caption for the given image.
     """
 
