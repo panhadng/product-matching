@@ -147,42 +147,44 @@ def describe_image_3_CLIP(image_path):
         raise Exception(f"Failed to get description. Status code: {response.status_code}")
     
 
-def describe_image_4_ViT(image_path):
-    """
-    Generate an enhanced caption for an image using the Google's Vision Transformer (ViT) model.
 
-    Args:
-        image_path (str): The path to the image file.
+# ViT could be used for Image Classification.
+# def describe_image_4_ViT(image_path):
+#     """
+#     Generate an enhanced caption for an image using the Google's Vision Transformer (ViT) model.
 
-    Returns:
-        str: A generated caption describing the image.
+#     Args:
+#         image_path (str): The path to the image file.
 
-    This function uses the ViT (google/vit-base-patch16-224) model
-    to generate a more detailed caption for the given image.
-    """
+#     Returns:
+#         str: A generated caption describing the image.
 
-    # Load the image and convert it to RGB
-    image = Image.open(image_path).convert('RGB')
+#     This function uses the ViT (google/vit-base-patch16-224) model
+#     to generate a more detailed caption for the given image.
+#     """
+
+#     # Load the image and convert it to RGB
+#     image = Image.open(image_path).convert('RGB')
   
-    # The API requires the image to be converted to a byte format and image for sending
-    buffered = BytesIO()
-    image.save(buffered, format="JPEG")
-    image_bytes = buffered.getvalue()
+#     # The API requires the image to be converted to a byte format and image for sending
+#     buffered = BytesIO()
+#     image.save(buffered, format="JPEG")
+#     image_bytes = buffered.getvalue()
    
-    # Send the image to the Hugging Face Inference API using URL nd APIKey
-    API_URL = "https://api-inference.huggingface.co/models/google/vit-base-patch16-224"
-    headers = {"Authorization": "Bearer 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"}
+#     # Send the image to the Hugging Face Inference API using URL nd APIKey
+#     API_URL = "https://api-inference.huggingface.co/models/google/vit-base-patch16-224"
+#     headers = {"Authorization": "Bearer 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"}
     
-    # Send the request
-    response = requests.post(API_URL, headers=headers, data=image_bytes)
+#     # Send the request
+#     response = requests.post(API_URL, headers=headers, data=image_bytes)
     
-    # Check if the request was successful
-    if response.status_code == 200:
-        # Parse the response and return the description
-        result = response.json()
-        caption = result[0]['generated_text']
-        return caption
+#     # Check if the request was successful
+#     if response.status_code == 200:
+#         # Parse the response and return the description
+#         result = response.json()
+#         caption = result[0]['generated_text']
+#         return caption
     
-    else:
-        # Handle the error
-        raise Exception(f"Failed to get description. Status code: {response.status_code}")
+#     else:
+#         # Handle the error
+#         raise Exception(f"Failed to get description. Status code: {response.status_code}")
