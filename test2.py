@@ -3,19 +3,20 @@
 from models.describe2 import describe_image_1_BLIP
 from models.describe2 import describe_image_2_NPL
 from models.describe2 import describe_image_3_CLIP
-# from models.describe2 import describe_image_4_ViT
 
 from models.classify import classify_image_CLIP
 
+
+# Function to Test describe.py
 def describeTest(image_path):
     print(f"Description from describe_image_1_BLIP for {image_path}: {describe_image_1_BLIP(image_path)}")
     print(f"Description from describe_image_2_NPL for {image_path}: {describe_image_2_NPL(image_path)}")
     print(f"Description from describe_image_3_CLIP for {image_path}: {describe_image_3_CLIP(image_path)}")
-    #print(f"Description from describe_image_4_ViT for {image_path}: {describe_image_4_ViT(image_path)}")
 
 
+# Function to Test claddify.py
 def classifyTest(image_path):
-    classification = classify_image_CLIP(image_path, labels)  # Classify the image
+    classification = classify_image_CLIP(image_path)  # Classify the image
     if classification:
         top_item = classification[0]  # Get the top item
         label = top_item['label']
@@ -25,6 +26,7 @@ def classifyTest(image_path):
         return f"No classification results available for {image_path}."
     
 
+#  Main function
 def main():
 
     # Array for Images
@@ -38,12 +40,14 @@ def main():
         "models/images/sofa2.jpg",
     ]
 
+    # Call the describeTest function
     for image_path in image_paths:
-        result = describeTest(image_path)  # Call the describeTest function
+        result = describeTest(image_path)  
         print(result)
 
+    # Call the classifyTest function
     for image_path in image_paths:
-        result = classifyTest(image_path)  # Call the classifyTest function
+        result = classifyTest(image_path)
         print(result)
 
     

@@ -11,10 +11,7 @@ import base64
 # Authorisation APIKEY for Hugging Face
 headers = {"Authorization": "Bearer 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"}
 
-# Define the labels for classification
-labels = ["Tech", "Furniture", "Food", "Fashion", "Music", "Games", "Book", "Movies", "Healthcare", "Pet"]
-
-def classify_image_CLIP(image_path, labels):
+def classify_image_CLIP(image_path):
     """
     Classify an image using the CLIP model and predefined labels.
 
@@ -24,6 +21,9 @@ def classify_image_CLIP(image_path, labels):
     Returns:
         str: The predicted label for the image.
     """
+
+    # Define the labels for classification
+    labels = ["Tech", "Furniture", "Food", "Fashion", "Music", "Games", "Book", "Movies", "Healthcare", "Pet"]
 
     # Load the image and convert it to RGB
     image = Image.open(image_path).convert('RGB')
@@ -52,7 +52,7 @@ def classify_image_CLIP(image_path, labels):
 
 # To Test and get Top 3 Labels
 # image_path = "models/images/chair1.jpg"
-# classification = classify_image_CLIP(image_path, labels)
+# classification = classify_image_CLIP(image_path)
 # print("Top 3 labels and their scores:")
 # for item in classification[:3]:  # Get the top 3 items
 #     label = item['label']
