@@ -3,6 +3,7 @@
 from models.describe2 import describe_image_1_BLIP
 from models.describe2 import describe_image_2_NPL
 from models.describe2 import describe_image_3_CLIP
+from models.describe2 import describe_image_4_ViT
 
 
 def main():
@@ -19,15 +20,10 @@ def main():
 
     # Loop through each image path and get the descriptions
     for image_path in image_paths:
-        
-        description_1 = describe_image_1_BLIP(image_path)
-        print(f"Description from describe_image_1_BLIP for {image_path}: {description_1}")
-
-        description_2 = describe_image_2_NPL(image_path)
-        print(f"Description from describe_image_2_NPL for {image_path}: {description_2}")
-
-        description_3 = describe_image_3_CLIP(image_path)
-        print(f"Description from describe_image_3_CLIP for {image_path}: {description_3}")
+        print(f"Description from describe_image_1_BLIP for {image_path}: {describe_image_1_BLIP(image_path)}")
+        print(f"Description from describe_image_2_NPL for {image_path}: {describe_image_2_NPL(image_path)}")
+        print(f"Description from describe_image_3_CLIP for {image_path}: {describe_image_3_CLIP(image_path)}")
+        print(f"Description from describe_image_4_ViT for {image_path}: {describe_image_4_ViT(image_path)}")
 
 
 if __name__ == "__main__":
