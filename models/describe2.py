@@ -1,24 +1,18 @@
 """
-This module provides functions for describing images using BLIP-2 models.
+This module provides functions for describing images using various models.
 It uses APIURL and APIKEY to generate captions for the Images.
 """
 
 from PIL import Image
-# from transformers import (
-#     BlipProcessor,
-#     BlipForConditionalGeneration,
-#     Blip2Processor,
-#     Blip2ForConditionalGeneration
-# )
 import warnings
-
 import requests
-# from PIL import Image
-# from tkinter import Tk, filedialog
 from io import BytesIO
 
 # Suppress warnings
 warnings.filterwarnings("ignore")
+
+# Authorisation APIKEY for Hugging Face
+headers = {"Authorization": "Bearer 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"}
 
 # Function to get a text description from an image using the Hugging Face Inference API
 def describe_image_1_BLIP(image_path):
@@ -45,8 +39,7 @@ def describe_image_1_BLIP(image_path):
    
     # Send the image to the Hugging Face Inference API using URL nd APIKey
     API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large"
-    headers = {"Authorization": "Bearer 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"}
-    
+        
     # Send the request
     response = requests.post(API_URL, headers=headers, data=image_bytes)
     
@@ -88,7 +81,6 @@ def describe_image_2_NPL(image_path):
    
     # Send the image to the Hugging Face Inference API using URL nd APIKey
     API_URL = "https://api-inference.huggingface.co/models/nlpconnect/vit-gpt2-image-captioning"
-    headers = {"Authorization": "Bearer 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"}
     
     # Send the request
     response = requests.post(API_URL, headers=headers, data=image_bytes)
@@ -104,7 +96,7 @@ def describe_image_2_NPL(image_path):
         # Handle the error
         raise Exception(f"Failed to get description. Status code: {response.status_code}")
     
-
+# ------------------------------------------
 
 def describe_image_3_CLIP(image_path):
     """
@@ -130,7 +122,6 @@ def describe_image_3_CLIP(image_path):
    
     # Send the image to the Hugging Face Inference API using URL nd APIKey
     API_URL = "https://api-inference.huggingface.co/models/nlpconnect/vit-gpt2-image-captioning"
-    headers = {"Authorization": "Bearer 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"}
     
     # Send the request
     response = requests.post(API_URL, headers=headers, data=image_bytes)
@@ -146,7 +137,7 @@ def describe_image_3_CLIP(image_path):
         # Handle the error
         raise Exception(f"Failed to get description. Status code: {response.status_code}")
     
-
+# ------------------------------------------
 
 # ViT could be used for Image Classification.
 # def describe_image_4_ViT(image_path):
@@ -173,7 +164,6 @@ def describe_image_3_CLIP(image_path):
    
 #     # Send the image to the Hugging Face Inference API using URL nd APIKey
 #     API_URL = "https://api-inference.huggingface.co/models/google/vit-base-patch16-224"
-#     headers = {"Authorization": "Bearer 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"}
     
 #     # Send the request
 #     response = requests.post(API_URL, headers=headers, data=image_bytes)
